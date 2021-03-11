@@ -6,7 +6,7 @@ const PDFDocument = require('pdfkit');
 const Product = require('../models/product');
 const Order = require('../models/order');
 
-const ITEMS_PER_PAGE = 2;
+const ITEMS_PER_PAGE = +process.env.ITEMS_PER_PAGE;
 
 exports.getProducts = (req, res, next) => {
   const page = +req.query.page || 1;
@@ -115,7 +115,6 @@ exports.postCart = (req, res, next) => {
       return req.user.addToCart(product);
     })
     .then(result => {
-      console.log(result);
       res.redirect('/cart');
     })
     .catch(err => {
@@ -194,10 +193,8 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  console.log('[shop.js - getOrders start]');
   Order.find({ 'user.userId': req.user._id })
     .then(orders => {
-      console.log('[shop.js - getOrders orders]', { orders });
       res.render('shop/orders', {
         path: '/orders',
         pageTitle: 'Your Orders',
@@ -205,7 +202,6 @@ exports.getOrders = (req, res, next) => {
       });
     })
     .catch(err => {
-      console.log('[shop.js - getOrders fail]');
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);

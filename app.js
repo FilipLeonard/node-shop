@@ -88,8 +88,6 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  console.log(`[early session middleware] session user: ${req.session.user}`);
-  console.dir({ session: req.session });
   if (!req.session.user) {
     return next();
   }
@@ -126,9 +124,6 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => {
-    // https
-    //   .createServer({ key: privateKey, cert: certificate }, app)
-    //   .listen(process.env.PORT || 3000);
     app.listen(process.env.PORT || 3000);
   })
   .catch(err => {

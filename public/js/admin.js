@@ -9,12 +9,10 @@ const deleteProduct = async btn => {
         'csrf-token': csrf,
       },
     });
-    console.log(res);
     if (res.ok) {
       btn.closest('article').remove();
     }
     const data = await res.json();
-    console.log(data);
   } catch (err) {
     console.error(err);
   }
