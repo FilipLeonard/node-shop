@@ -22,6 +22,8 @@ const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions',
+  autoRemove: 'interval',
+  autoRemoveInterval: 10,
 });
 const csrfProtection = csrf();
 
@@ -87,6 +89,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   console.log(`[early session middleware] session user: ${req.session.user}`);
+  console.dir({ session: req.session });
   if (!req.session.user) {
     return next();
   }
