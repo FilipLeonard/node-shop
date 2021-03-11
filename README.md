@@ -1,26 +1,30 @@
-- main project from [this Udemy Course](https://www.udemy.com/course/nodejs-the-complete-guide/).
-
 # Node.js Shop
 
-Simple online shop built with Node.js
+This basic online shop is a node.js application powered by Express framework and EJS templating engine. It's the main project from [this Udemy Course](https://www.udemy.com/course/nodejs-the-complete-guide/) and also an important part of my journey through Node-land. It covers the main features one would expect from a web store, such as user authentication and own products managing, products browsing, shopping cart and order history.
 
-## Table of contents
+![Shop Preview](https://i.imgur.com/nqbbtdk.png)
 
-- [Node.js Shop](#nodejs-shop)
-  - [Table of contents](#table-of-contents)
-  - [General info](#general-info)
-  - [Screenshots](#screenshots)
-  - [Technologies](#technologies)
-  - [Setup](#setup)
-  - [Code Examples](#code-examples)
-  - [Features](#features)
-  - [Status](#status)
-  - [Inspiration](#inspiration)
-  - [Contact](#contact)
+---
+
+## Demo
+
+Here is a working live demo: https://node-complete-leo.herokuapp.com/
+
+---
 
 ## General info
 
-Add more general information about project. What the purpose of the project is? Motivation?
+The project is built as a stand alone node server, without a separate frontend deployment. Every view is rendered server-side while style and browser-logic files are served statically. The project structure follows the MVC pattern and is conceptually organized around
+
+---
+
+## Features
+
+The project is structured
+
+---
+
+## Technologies
 
 ## Screenshots
 
