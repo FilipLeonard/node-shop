@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
       api_key:
-        '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',
+        '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',
     },
   })
 );
@@ -206,7 +206,7 @@ exports.postReset = async (req, res, next) => {
       })
       .then(result => {
         res.redirect('/');
-        transporter.sendMail({
+        return transporter.sendMail({
           to: req.body.email,
           from: 'leonard.filip.93@gmail.com',
           subject: 'Password reset',
