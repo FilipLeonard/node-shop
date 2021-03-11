@@ -70,7 +70,7 @@ router.get('/reset', authController.getReset);
 
 router.post(
   '/reset',
-
+  [body('email').normalizeEmail()],
   authController.postReset
 );
 
