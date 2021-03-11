@@ -86,6 +86,7 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+  console.log(`[early session middleware] session user: ${req.session.user}`);
   if (!req.session.user) {
     return next();
   }
