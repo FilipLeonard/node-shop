@@ -16,9 +16,7 @@ const morgan = require('morgan');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const MONGODB_URI =
-  // `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusternodecomplete.jg2xr.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
-  `mongodb+srv://leooonard:qwerty789@clusternodecomplete.jg2xr.mongodb.net/shop`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusternodecomplete.jg2xr.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
 
 const app = express();
 const store = new MongoDBStore({
@@ -26,9 +24,6 @@ const store = new MongoDBStore({
   collection: 'sessions',
 });
 const csrfProtection = csrf();
-
-// const privateKey = fs.readFileSync('./server.key');
-// const certificate = fs.readFileSync('./server.cert');
 
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -116,8 +111,6 @@ app.get('/500', errorController.get500);
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
-  // res.status(error.httpStatusCode).render(...);
-  // res.redirect('/500');
   console.log(error);
   res.status(500).render('500', {
     pageTitle: 'Error!',

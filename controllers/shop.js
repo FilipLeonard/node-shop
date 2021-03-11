@@ -194,8 +194,10 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
+  console.log('[shop.js - getOrders start]');
   Order.find({ 'user.userId': req.user._id })
     .then(orders => {
+      console.log('[shop.js - getOrders orders]', { orders });
       res.render('shop/orders', {
         path: '/orders',
         pageTitle: 'Your Orders',
@@ -203,6 +205,7 @@ exports.getOrders = (req, res, next) => {
       });
     })
     .catch(err => {
+      console.log('[shop.js - getOrders fail]');
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);
