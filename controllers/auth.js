@@ -184,15 +184,19 @@ exports.getReset = (req, res, next) => {
   });
 };
 
-exports.postReset = (req, res, next) => {
+exports.postReset = async (req, res, next) => {
   crypto.randomBytes(32, (err, buffer) => {
     if (err) {
       return res.redirect('/reset');
     }
     const token = buffer.toString('hex');
+    console.log('Change token is', { token });
+    console.log('Request email is', { email: req.body.email });
     User.findOne({ email: req.body.email })
       .then(user => {
+        console.log('Found user is', { user });
         if (!user) {
+          console.log('error', 'No account with that email found.');
           req.flash('error', 'No account with that email found.');
           return res.redirect('/reset');
         }

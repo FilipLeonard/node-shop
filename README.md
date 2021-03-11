@@ -12,15 +12,24 @@ Here is a working live demo: https://node-complete-leo.herokuapp.com/
 
 ---
 
-## General info
+## General Info
 
-The project is built as a stand alone node server, without a separate frontend deployment. Every view is rendered server-side while style and browser-logic files are served statically. The project structure follows the MVC pattern and is conceptually organized around
+- The project is built as a stand alone node server, without a separate frontend deployment.
+- Every view is rendered server-side while style and browser-logic files are served statically.
+- The project structure follows the MVC pattern and is conceptually organized around three areas: _auth_, _admin_ and _shop_ (e.g. user authentication, own products administration and general web shop).
+- Domain object models _User_, _Product_ and _Order_ interface with noSQL database MongoDB.
+- Sessions are used to authenticate requests for protected resources and these are also stored on MongoDB, in the same database.
+- Product images are stored on the server and image paths on the database
+- Invoice PDFs are generated and stored on the server
 
 ---
 
 ## Features
 
-The project is structured
+- Authentication
+  - simple email & password signup/login
+  - auto login with sessions
+  -
 
 ---
 
