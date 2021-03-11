@@ -206,13 +206,15 @@ exports.postReset = async (req, res, next) => {
       })
       .then(result => {
         res.redirect('/');
+        const fullUrl =
+          req.protocol + '://' + req.get('host') + req.originalUrl;
         return transporter.sendMail({
           to: req.body.email,
           from: 'leonard.filip.93@gmail.com',
           subject: 'Password reset',
           html: `
             <p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.</p>
+            <p>Click this <a href="${fullUrl}/${token}">link</a> to set a new password.</p>
           `,
         });
       })

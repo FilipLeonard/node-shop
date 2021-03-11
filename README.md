@@ -28,8 +28,8 @@ Here is a working live demo: https://node-complete-leo.herokuapp.com/
 
 - Authentication
   - simple email & password signup/login
+  - password reset
   - auto login with sessions
-  -
 
 ---
 
