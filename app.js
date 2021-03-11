@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const https = require('https');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -17,8 +16,9 @@ const morgan = require('morgan');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusternodecomplete.jg2xr.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
-// `mongodb+srv://leooonard:qwerty789@clusternodecomplete.jg2xr.mongodb.net/shop`;
+const MONGODB_URI =
+  // `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusternodecomplete.jg2xr.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
+  `mongodb+srv://leooonard:qwerty789@clusternodecomplete.jg2xr.mongodb.net/shop`;
 
 const app = express();
 const store = new MongoDBStore({
@@ -91,7 +91,6 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  // throw new Error('Sync Dummy');
   if (!req.session.user) {
     return next();
   }
