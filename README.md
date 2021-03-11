@@ -1,6 +1,6 @@
 # Node.js Shop
 
-This basic online shop is a node.js application powered by Express framework and EJS templating engine. It's the main project from [this Udemy Course](https://www.udemy.com/course/nodejs-the-complete-guide/) and also an important part of my journey through Node-land. It covers the main features one would expect from a web store, such as user authentication and own products managing, products browsing, shopping cart and order history.
+This basic online shop is a node.js application powered by Express framework and EJS templating engine. It's the main project from [this Udemy Course](https://www.udemy.com/course/nodejs-the-complete-guide/) and also an important part of my journey through Node-land. It covers the main features one would expect from a web store, such as user authentication and own products management, product browse, shopping cart and order history.
 
 ![Shop Preview](https://i.imgur.com/nqbbtdk.png)
 
